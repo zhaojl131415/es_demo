@@ -1,0 +1,7 @@
+#spring:
+#  data:
+#    elasticsearch:
+#      repositories:
+#        enabled: true
+#      cluster-nodes: 192.168.1.223:9300,192.168.1.224:9300
+#      cluster-name: zhanjob-search
