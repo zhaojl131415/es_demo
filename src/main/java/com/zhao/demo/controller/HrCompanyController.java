@@ -13,6 +13,7 @@ import java.util.List;
  * Created by bysocket on 03/05/2017.
  */
 @RestController
+@RequestMapping("/api/hr_company")
 public class HrCompanyController {
 
     @Autowired
@@ -21,11 +22,21 @@ public class HrCompanyController {
     /**
      * 插入 ES 新城市
      *
-     * @param hrCompany
+     * @param
      * @return
      */
-    @PostMapping("/api/hr_company")
-    public Long createHrCompany(@RequestBody HrCompany hrCompany) {
+    @PostMapping(value = "/add")
+    public Long createHrCompany(@RequestParam(value = "companyId") Long companyId,
+                                @RequestParam(value = "companyName") String companyName,
+                                @RequestParam(value = "score") Integer score,
+                                @RequestParam(value = "description") String description) {
+        HrCompany hrCompany = new HrCompany();
+        hrCompany.setId(companyId);
+        hrCompany.setCompanyId(companyId);
+        hrCompany.setCompanyName(companyName);
+        hrCompany.setScore(score);
+        hrCompany.setDescription(description);
+
         return hrCompanyService.saveHrCompany(hrCompany);
     }
 
@@ -34,7 +45,7 @@ public class HrCompanyController {
      *
      * @return
      */
-    @GetMapping("/api/hr_company/find")
+    @GetMapping("/find")
     public List<HrCompany> findByDescriptionAndScore() {
         return hrCompanyService.findAll();
     }
@@ -45,7 +56,7 @@ public class HrCompanyController {
      * @param score
      * @return
      */
-    @GetMapping("/api/hr_company/and/find")
+    @GetMapping("/and/find")
     public List<HrCompany> findByDescriptionAndScore(@RequestParam(value = "description") String description,
                                                 @RequestParam(value = "score") Integer score) {
         return hrCompanyService.findByDescriptionAndScore(description, score);
@@ -58,7 +69,7 @@ public class HrCompanyController {
      * @param score
      * @return
      */
-    @GetMapping(value = "/api/hr_company/or/find")
+    @GetMapping(value = "/or/find")
     public List<HrCompany> findByDescriptionOrScore(@RequestParam(value = "description") String description,
                                                @RequestParam(value = "score") Integer score) {
         return hrCompanyService.findByDescriptionOrScore(description, score);
@@ -70,7 +81,7 @@ public class HrCompanyController {
      * @param description
      * @return
      */
-    @GetMapping(value = "/api/hr_company/description/find")
+    @GetMapping(value = "/description/find")
     public List<HrCompany> findByDescription(@RequestParam(value = "description") String description) {
         return hrCompanyService.findByDescription(description);
     }
@@ -81,7 +92,7 @@ public class HrCompanyController {
      * @param description
      * @return
      */
-    @GetMapping(value = "/api/hr_company/description/not/find")
+    @GetMapping(value = "/description/not/find")
     public List<HrCompany> findByDescriptionNot(@RequestParam(value = "description") String description) {
         return hrCompanyService.findByDescriptionNot(description);
     }
@@ -92,7 +103,7 @@ public class HrCompanyController {
      * @param description
      * @return
      */
-    @GetMapping(value = "/api/hr_company/like/find")
+    @GetMapping(value = "/like/find")
     public List<HrCompany> findByDescriptionLike(@RequestParam(value = "description") String description) {
         return hrCompanyService.findByDescriptionLike(description);
     }
