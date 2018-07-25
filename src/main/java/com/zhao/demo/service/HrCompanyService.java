@@ -11,7 +11,7 @@ import java.util.List;
 public interface HrCompanyService {
 
     /**
-     * 新增 ES 城市信息
+     * 新增 ES 公司信息
      *
      * @param hrCompany
      * @return
@@ -44,7 +44,7 @@ public interface HrCompanyService {
     List<HrCompany> findByDescriptionOrScore(String description, Integer score);
 
     /**
-     * 查询城市描述
+     * 查询公司描述
      *
      * @param description
      * @return

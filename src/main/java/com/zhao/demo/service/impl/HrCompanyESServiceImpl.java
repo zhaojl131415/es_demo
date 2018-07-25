@@ -23,9 +23,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 城市 ES 业务逻辑实现类
- * <p>
- * Created by bysocket on 07/02/2017.
+ * 公司 ES 业务逻辑实现类
+ *
+ * Created by zhao
  */
 @Service
 public class HrCompanyESServiceImpl implements HrCompanyService {

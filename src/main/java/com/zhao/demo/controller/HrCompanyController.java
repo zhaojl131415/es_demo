@@ -9,8 +9,7 @@ import java.util.List;
 
 /**
  * 公司 Controller 实现 Restful HTTP 服务
- * <p>
- * Created by bysocket on 03/05/2017.
+ *
  */
 @RestController
 @RequestMapping("/api/hr_company")
@@ -20,7 +19,7 @@ public class HrCompanyController {
     private HrCompanyService hrCompanyService;
 
     /**
-     * 插入 ES 新城市
+     * 插入 ES 新公司
      *
      * @param
      * @return
@@ -76,7 +75,7 @@ public class HrCompanyController {
     }
 
     /**
-     * 查询城市描述
+     * 查询公司描述
      *
      * @param description
      * @return

@@ -10,8 +10,8 @@ import java.util.List;
 
 /**
  * ES 操作类
- * <p>
- * Created by bysocket on 17/05/2017.
+ *
+ * Created by zhao.
  */
 
 public interface HrCompanyRepository extends ElasticsearchRepository<HrCompany, Long> {
@@ -34,7 +34,7 @@ public interface HrCompanyRepository extends ElasticsearchRepository<HrCompany, 
     List<HrCompany> findByDescriptionOrScore(String description, Integer score);
 
     /**
-     * 查询城市描述
+     * 查询公司描述
      *
      * 等同于下面代码
      * @Query("{\"bool\" : {\"must\" : {\"term\" : {\"description\" : \"?0\"}}}}")
